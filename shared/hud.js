@@ -356,7 +356,6 @@ const MVIEW_SPEED = { us: 200, metric: 330 };
 const VDASH_RPM = 8000;            // the Vector theme's rev counter: 0..8
 const APEX_SHIFT_WINDOW_RPM = 100;    // green starts 100 rpm before the active shift point
 const APEX_SHIFT_LIGHT_LEAD_RPM = 2000; // light the row left to right over the approach to that window
-const MEDIA_IF = 'de.bmw.infotainment.hmi.hmimediastate.HmiMediaState';   // the head unit's now playing (front)
 const MEDIA_TYPES = { 1: 'ARTIST', 2: 'ALBUM', 3: 'TITLE' };
 /** A song's text for the baked fonts: accents dropped, curly quotes and dashes made plain, the rest left out. */
 function mediaText(v) {
@@ -815,13 +814,9 @@ class HudApp {
                 },
             },
         };
-        // now playing (the Vector layouts' music panel): the head unit's own media state, front screen only. Optional
-        // (app.json): not every unit may have it, and whether CarPlay fills it is not known yet. Added last, so the
-        // one-at-a-time SOME/IP setup (signals.js) reaches every vehicle signal before it, whatever this one does
-        extra[MEDIA_IF] = {
-            playerMetadata: (v) => this._mediaFeed('meta', v),
-            trackProgress: (v) => this._mediaFeed('progress', v),
-        };
+        // Live media is disabled until a valid front-screen instance is known.
+        // The G80's ACL generator rejects HmiMediaState instance "1"; an
+        // optional music panel must not prevent the entire app from installing.
         this.car = new Car(this.ctx, ['rpm', 'speed', 'temps', 'accel', 'gear', 'torque'], extra);
         // "Play demo": this.car becomes the show's stand-in (the car's own data unless the show plays)
         this.demo = new DemoShow(this.car, this._demoHooks(), this.log);

@@ -1,5 +1,11 @@
 # Shez Cluster Themes
 
+Version 0.1.3 removes the optional HmiMediaState request and live subscription.
+The G80's firmware rejected instance `1` during ACL generation in the 0.1.2
+diagnostic build. All themes remain available, but Vector's live song title,
+artist and progress are unavailable pending identification of the correct
+front-screen media instance. The on-car diagnostic check remains enabled.
+
 Version 0.1.2 adds installation diagnostics. During a Store build on the car,
 the app runs the firmware's SOME/IP interface and ACL generators against a
 copy of its generated manifest, including the Store's certification proxy
