@@ -24,3 +24,4 @@ jobs:
       - run: node tools/test_mode_dial_display.js
       - run: node tools/test_gear_display.js
       - run: node tools/test_hud_text.js
+      - run: node tools/test_someip_check.js

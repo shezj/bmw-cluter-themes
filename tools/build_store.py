@@ -3,6 +3,7 @@
 
 import argparse
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -30,6 +31,11 @@ def main():
         raise ValueError('build id must match the Store app manifest')
     check_sdk(ROOT)
     subprocess.run([sys.executable, str(ROOT / 'kit/tools/build.py'), args.app], cwd=ROOT, check=True)
+    if os.environ.get('MGU_SDK_DONOR') or Path('/etc/oap/someip/someip-interfaces.json').exists():
+        manifest = ROOT / 'dist' / args.app / 'source' / 'manifest.json'
+        subprocess.run(['node', str(ROOT / 'tools/check_someip.js'), str(manifest)], cwd=ROOT, check=True)
+    else:
+        print('SOMEIP CHECK: unavailable on desktop; firmware compatibility has NOT been checked.', flush=True)
 
 
 if __name__ == '__main__':

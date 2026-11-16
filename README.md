@@ -1,5 +1,19 @@
 # Shez Cluster Themes
 
+Version 0.1.2 adds installation diagnostics. During a Store build on the car,
+the app runs the firmware's SOME/IP interface and ACL generators against a
+copy of its generated manifest, including the Store's certification proxy
+and unknown-interface filtering. It creates no vehicle connections and
+does not change the package manifest or installed permissions.
+
+If generation fails, installation stops and the Store's updater log contains
+`SOMEIP CHECK:` lines with the multiline cause and any declarations that also
+fail individually. Copy those lines when reporting an installation failure.
+An unreadable firmware database or unsupported generator bundle also stops
+the diagnostic build with its error. Passing this check does not guarantee
+installation: it uses a representative app uid, while MainApp allocates the
+real uid later. Desktop checks cannot validate the car's firmware.
+
 A customised, complete Cluster Themes app for **BMW iDrive 7**, based on
 [bimmer-lab/apps](https://github.com/bimmer-lab/apps). One app contains all
 14 themes: **Apex, GT3, M, M View, Vector, Sport, Minimal, Track, Drag, Rally,
