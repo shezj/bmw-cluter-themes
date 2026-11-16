@@ -1,0 +1,17 @@
+# The Store supplies the real SDK on the head unit. Never publish the bench stub.
+oap-sdk/
+dist/
+bench/.data/
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+._*
+.env
+.env.*
+*.pem
+*.key
+.claude/
+preview/

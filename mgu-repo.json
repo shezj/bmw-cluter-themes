@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "components": [
+    {
+      "id": "shez_cluster_themes",
+      "kind": "app",
+      "path": "apps/shez_cluster_themes",
+      "manifest": "app.json",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "cluster-render": "0.5.9"
+      },
+      "build": {
+        "python": "tools/build_store.py",
+        "args": [
+          "{id}"
+        ],
+        "sdk": "oap-sdk",
+        "output": "dist/{id}@{version}.tgz"
+      }
+    }
+  ]
+}

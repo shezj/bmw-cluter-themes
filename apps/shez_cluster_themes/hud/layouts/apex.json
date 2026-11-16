@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 2,
+  "name": "Apex",
+  "packWaste": 5,
+  "theme": "apex",
+  "_about": "A full-screen supercar-style cluster with graphite honeycomb, a curved 8,000-rpm tachometer and progressive blue/green/red shift LEDs below the G80 driver-camera housing. Pointed temperature panels show live coolant on the left and oil on the right, using BMW M's published S58 operating references: coolant 90–105 Celsius, oil around 100 Celsius and approximate maximum oil 130 Celsius. A curved fuel gauge hugs the right edge with white ticks, a red lower-quarter bracket, a pump icon and live percentage. A mirrored left-edge boost gauge has a turbo icon, live psi/bar readout and a 0–3 bar display span. Temperature colours, boost scale and the fuel reserve region are theme choices, not OEM ECU warning calibration. Oil pressure is omitted. Native BMW warnings remain authoritative and may draw over third-party content. Separate text widgets show gear, speed, clocks, odometer, range and outside temperature.",
+  "widgets": [
+    {
+      "id": "instruments",
+      "type": "apexdash",
+      "class": "content",
+      "z": 1,
+      "x": 0,
+      "y": 0,
+      "w": 1920,
+      "h": 660,
+      "rpmMax": 8000,
+      "oilPanel": [
+        1350,
+        0
+      ],
+      "coolantPanel": [
+        570,
+        0
+      ],
+      "fuelGauge": [
+        1774,
+        286
+      ],
+      "boostGauge": [
+        146,
+        286
+      ],
+      "distanceRow": [
+        1365,
+        520
+      ]
+    },
+    {
+      "id": "clock",
+      "type": "text",
+      "z": 4,
+      "x": 1218,
+      "y": 23,
+      "w": 122,
+      "h": 35,
+      "text": "{{time24}}",
+      "font": "l_value",
+      "color": "fg",
+      "align": "left"
+    },
+    {
+      "id": "engine_mode_dial",
+      "type": "modeDial",
+      "class": "content",
+      "z": 5,
+      "x": 290,
+      "y": 500,
+      "w": 420,
+      "h": 160
+    },
+    {
+      "id": "gear",
+      "type": "gear",
+      "z": 5,
+      "x": 716,
+      "y": 292,
+      "w": 488,
+      "h": 206,
+      "text": "{{gearnum}}",
+      "font": "l_gear",
+      "color": "accent",
+      "align": "center"
+    },
+    {
+      "id": "speed",
+      "type": "text",
+      "z": 5,
+      "x": 795,
+      "y": 516,
+      "w": 250,
+      "h": 68,
+      "text": "{{speed}}",
+      "font": "l_speed",
+      "color": "fg",
+      "align": "center"
+    },
+    {
+      "id": "speed_unit",
+      "type": "text",
+      "z": 5,
+      "x": 795,
+      "y": 587,
+      "w": 250,
+      "h": 30,
+      "text": "{{u:speedLc}}",
+      "font": "l_label",
+      "color": "fg",
+      "align": "center"
+    },
+    {
+      "id": "speed_secondary",
+      "type": "text",
+      "z": 5,
+      "x": 1025,
+      "y": 546,
+      "w": 110,
+      "h": 33,
+      "text": "{{speed2}}",
+      "font": "l_speed_small",
+      "color": "fg",
+      "align": "center"
+    },
+    {
+      "id": "speed_secondary_unit",
+      "type": "text",
+      "z": 5,
+      "x": 1025,
+      "y": 587,
+      "w": 110,
+      "h": 30,
+      "text": "{{u:speed2}}",
+      "font": "l_label",
+      "color": "fg",
+      "align": "center"
+    },
+    {
+      "id": "strip_cover_l",
+      "type": "fill",
+      "class": "content",
+      "z": 0,
+      "x": 0,
+      "y": 660,
+      "w": 1380,
+      "h": 60,
+      "color": "bg",
+      "stripRow": "l"
+    },
+    {
+      "id": "strip_cover_r",
+      "type": "fill",
+      "class": "content",
+      "z": 0,
+      "x": 1460,
+      "y": 660,
+      "w": 460,
+      "h": 60,
+      "color": "bg",
+      "stripRow": "r"
+    },
+    {
+      "id": "strip_time",
+      "type": "text",
+      "z": 3,
+      "x": 144,
+      "y": 674,
+      "w": 124,
+      "h": 33,
+      "text": "{{time}}",
+      "font": "l_value",
+      "color": "fg",
+      "align": "right",
+      "stripRow": "l"
+    },
+    {
+      "id": "strip_ampm",
+      "type": "text",
+      "z": 3,
+      "x": 274,
+      "y": 681,
+      "w": 44,
+      "h": 25,
+      "text": "{{ampmLc}}",
+      "font": "l_label",
+      "color": "dim",
+      "align": "left",
+      "stripRow": "l"
+    },
+    {
+      "id": "strip_range",
+      "type": "text",
+      "z": 3,
+      "x": 874,
+      "y": 674,
+      "w": 116,
+      "h": 33,
+      "text": "{{range}}",
+      "font": "l_value",
+      "color": "fg",
+      "align": "right",
+      "stripRow": "l"
+    },
+    {
+      "id": "strip_range_u",
+      "type": "text",
+      "z": 3,
+      "x": 996,
+      "y": 681,
+      "w": 52,
+      "h": 25,
+      "text": "{{u:distLc}}",
+      "font": "l_label",
+      "color": "dim",
+      "align": "left",
+      "stripRow": "l"
+    },
+    {
+      "id": "strip_out",
+      "type": "text",
+      "z": 3,
+      "x": 1672,
+      "y": 674,
+      "w": 86,
+      "h": 33,
+      "text": "{{ambient}}",
+      "font": "l_value",
+      "color": "fg",
+      "align": "right",
+      "stripRow": "r"
+    },
+    {
+      "id": "strip_out_u",
+      "type": "text",
+      "z": 3,
+      "x": 1764,
+      "y": 681,
+      "w": 46,
+      "h": 25,
+      "text": "{{u:temp}}",
+      "font": "l_label",
+      "color": "dim",
+      "align": "left",
+      "stripRow": "r"
+    }
+  ]
+}
